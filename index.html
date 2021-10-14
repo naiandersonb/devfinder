@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>devfinder</title>
+    <!-- <link rel="shortcut icon" type="imagex/png" href="./images/icon.ico"> -->
+
+    <!-- css style -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <header class="title">
+            <h1> DevFinder</h1>
+            <div>
+                <a href="#" id="light-dark-theme">light</a>
+                <ion-icon name="sunny"></ion-icon>
+            </div>
+        </header>
+
+        <section class="search">
+            <form action="/" class="search-user" method="get" autocomplete="off">
+                <label for="userName">
+                    <span>
+                        <ion-icon name="search"></ion-icon>
+                    </span>
+                    <input type="text" name="userName" placeholder="Search GitHub username...">
+                </label>
+                <button class="btn" type="submit">Search</button>
+            </form>
+        </section>
+
+        <main class="user-content">
+            <header>
+                <div class="avatar">
+                    <img id="avatar" src="https://avatars.githubusercontent.com/u/583231?v=4" alt="avatar">
+                </div>
+                <div class="info">
+                    <h1 id="user-name">
+                        Octocat
+                    </h1>
+                    <h2 id="login">
+                        @octocat
+                    </h2>
+                    <p id="joined">
+                        joined 25 Jan 2020
+                    </p>
+                </div>
+            </header>
+            <div class="bio">
+                <p id="bio">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus tempore nemo.
+                </p>
+
+            </div>
+
+            <section class="user-content-body">
+                <div class="repos">
+                    <p>Repos</p>
+                    <p id="repos">8</p>
+                </div>
+
+                <div class="followers">
+                    <p>Followers</p>
+                    <p id="followers">3938</p>
+                </div>
+
+                <div class="following">
+                    <p>Following</p>
+                    <p id="following"> 9</p>
+                </div>
+            </section>
+
+            <section class="user-content-footer">
+                <div>
+                    <p id="user-location"><span>
+                            <ion-icon name="location"></ion-icon>
+                        </span> San Francisco</p>
+
+
+                    <p> <span>
+                            <ion-icon name="link"></ion-icon>
+                        </span> <a id="blog" href="https://github.blog"> https://github.blog</a></p>
+                </div>
+
+                <div>
+                    <p id="twitter"> <span>
+                            <ion-icon name="logo-twitter"></ion-icon>
+                        </span > @github </p>
+
+                    <p id="email"> <span>
+                        <ion-icon name="mail-outline"></ion-icon>
+                        </span > user@github.com</p>
+                </div>
+            </section>
+
+            <footer class='footer'>
+                <p>⚡️ Desenvolvidor por <a href="https://github.com/naiandersonb" target="_blank"> Naianderson Bruno</a>
+                </p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!-- icons library -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <!-- https://github.com/axios/axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+    <!-- js -->
+    <script src="assets/js/script.js"></script>
+
+</body>
+
+</html>

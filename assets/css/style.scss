@@ -1,0 +1,381 @@
+@import url('https://fonts.googleapis.com/css2?family=Monofett&family=Space+Mono:wght@400;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
+    box-sizing: border-box;
+    line-height: 1.5em;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Space Mono', monospace;
+}
+
+// ----- color pallet ----- //
+$grey-color: #c0c1c5;
+$light-color: #dddfe7;
+$dark:#1c1d1f;
+$green: #2fbb4f;
+$light-dark: #27292b;
+
+$large: 992px;
+$medium: 900px;
+$small: 576px;
+
+
+// ----- breakpoints ----- //
+$desktop: '(min-width: 1000px)';
+
+
+// ----- mixis ----- //
+@mixin border($size) {
+    border-radius: $size;
+    -webkit-border-radius: $size;
+    -moz-border-radius: $size;
+    border: none;
+}
+
+@mixin placeholderAttibutes {
+    color: $light-color;
+    font-size: 0.8em;
+
+    @media (min-width: $small) {
+        color: $light-color;
+        font-size: 1em;
+    }
+}
+
+body {
+    background-color: $dark;
+    color: $light-color;
+}
+
+img {
+    width: 100%;
+}
+
+.container {
+    width: 100%;
+    padding: 1em;
+
+    @media #{$desktop} {
+        width: $large;
+        margin: 0 auto;
+    }
+
+}
+
+
+.title {
+    width: 100%;
+    padding: 1.5em 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1em;
+
+    h1 {
+        display: flex;
+        font-size: 1.5em;
+    }
+
+    div {
+        display: flex;
+        align-items: center;
+
+        a {
+            color: $light-color;
+            margin-right: 1em;
+            text-transform: uppercase;
+
+            &:hover {
+                color: $green;
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5em;
+    background-color: $light-dark;
+    @include border(20px);
+
+    @media (min-width: $small) {
+        padding: 0.9em;
+    }
+
+    label {
+        display: flex;
+        width: 70%;
+    }
+
+    span {
+        display: flex;
+        align-items: center;
+        color: $green;
+        margin-left: 0.5em;
+    }
+
+    form {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    input {
+        width: 100%;
+        background-color: transparent;
+        border: none;
+        padding: 0 .5em;
+        font-size: .8em;
+        color: $light-color;
+        margin: 0.2em;
+
+        &:focus {
+            box-shadow: 0 0 0 0;
+            border: 0 none;
+            outline: 0;
+        }
+    }
+
+    button {
+        text-align: center;
+        @include border(10px);
+        background-color: $green;
+        color: $light-color;
+        font-size: 0.8em;
+        font-weight: 700;
+        padding: 1em;
+        cursor:pointer;
+        transition: 350ms;
+        filter: drop-shadow(11px 11px 20px darken($light-dark, 3));
+
+        &:hover {
+            background-color: darken($green, 10);
+        }
+    }
+}
+
+::-webkit-input-placeholder {
+    @include placeholderAttibutes;
+ }
+ 
+ :-moz-placeholder { /* Firefox 18- */
+    @include placeholderAttibutes;
+ }
+ 
+ ::-moz-placeholder {  /* Firefox 19+ */
+    @include placeholderAttibutes;
+ }
+ 
+ :-ms-input-placeholder {  
+    @include placeholderAttibutes;
+}
+
+.user-content {
+    margin-top: 2em;
+    background-color: $light-dark;
+    @include border(20px);
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+
+    @media (min-width: $small) {
+        padding: 3em;
+        display: flex;
+    }
+    
+    header {
+        display: flex;
+        align-items: center;
+
+        img {
+            width: 90px;
+            @include border(50%);
+            margin: 0 1em 1em 0;
+
+            @media (min-width: $small) {
+                width: 110px;
+                margin-right: 2em;
+            }
+
+            @media (min-width: $medium) {
+                width: 170px;
+                margin-right: 2em;
+            }
+            
+        }
+    }
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+
+    h1 {
+        font-size: 1em;
+        margin-bottom: .2em;
+
+        @media (min-width: $small) {
+            font-size: 1.2em;
+        }
+
+        @media (min-width: $medium) {
+            font-size: 1.5em;
+        }
+    }
+    
+    h2 {
+        font-size: 0.9em;
+        font-weight: 400;
+        color: $green;
+        margin-bottom: .2em;
+
+        @media (min-width: $medium) {
+            font-size: 1.1em;
+        }
+    }
+    
+    p {
+        font-size: 0.8em;
+        margin-bottom: .2em;
+        color: lighten($light-dark, 40);
+        
+        @media (min-width: $medium) {
+            font-size: 1em;
+            margin: .5em 0;
+        }
+    }
+
+}
+
+.bio {
+    display: block;
+    margin: 1em 0;
+
+    @media (min-width: $medium) {
+        width: 77%;
+        align-self: flex-end;
+    }
+
+    p {
+        font-size: 0.8em;
+        @media (min-width: $medium) {
+            font-size: 1em;
+        }
+    }
+}
+
+.user-content-body {
+    display: flex;
+    justify-content: space-around;
+    padding: 1em 0.8em;
+    @include border(20px);
+    background-color: $dark;
+    text-align: center;
+
+    @media (min-width: $medium) {
+        width: 77%;
+        align-self: flex-end;
+    }
+
+    div {
+        margin: 0 .5em;
+    }
+
+    p {
+        font-size: .8em;
+        margin-bottom: .2em;
+        &:nth-child(1) {
+            font-weight: 700;
+        }
+
+        @media (min-width: $medium) {
+            font-size: 1em;
+        }
+    }
+}
+
+.user-content-footer {
+    display: flex;
+    flex-direction: column;
+    margin: 1em 0;
+
+    @media (min-width: $medium) {
+        display: flex;
+        flex-direction: row;
+        width: 77%;
+        align-self: flex-end;
+    }
+
+    div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        @media (min-width: $medium) {
+            width: 50%;
+        }
+    }
+
+    ion-icon {
+        font-size: .8em;
+    }
+    p {
+        font-size: .8em;
+        color: $light-color;
+        margin: 0.9em 0;
+    }
+    
+    a {
+        color: $light-color;
+        font-size: .9em;
+
+        &:hover {
+            color: $green;
+        }
+    }
+
+}
+
+.footer {
+    margin: 1em auto 0;
+
+    p {
+        font-size: .6em;
+        color: lighten($light-dark, 40);
+    }
+
+    a {
+        font-size: 1em;
+        color: $green;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+// ----- light theme //
+.body-bg {
+    background-color: $grey-color;
+    color: $dark;
+}
+
+.card-bg {
+    background-color: $light-color;
+    color: $dark;
+}
+
+.text-color {
+    color: $dark;
+}
+
+
