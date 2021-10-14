@@ -151,7 +151,7 @@ img {
         font-size: 0.8em;
         font-weight: 700;
         padding: 1em;
-        cursor:pointer;
+        cursor: pointer;
         transition: 350ms;
         filter: drop-shadow(11px 11px 20px darken($light-dark, 3));
 
@@ -163,17 +163,19 @@ img {
 
 ::-webkit-input-placeholder {
     @include placeholderAttibutes;
- }
- 
- :-moz-placeholder { /* Firefox 18- */
+}
+
+:-moz-placeholder {
+    /* Firefox 18- */
     @include placeholderAttibutes;
- }
- 
- ::-moz-placeholder {  /* Firefox 19+ */
+}
+
+::-moz-placeholder {
+    /* Firefox 19+ */
     @include placeholderAttibutes;
- }
- 
- :-ms-input-placeholder {  
+}
+
+:-ms-input-placeholder {
     @include placeholderAttibutes;
 }
 
@@ -189,7 +191,7 @@ img {
         padding: 3em;
         display: flex;
     }
-    
+
     header {
         display: flex;
         align-items: center;
@@ -208,7 +210,7 @@ img {
                 width: 170px;
                 margin-right: 2em;
             }
-            
+
         }
     }
 }
@@ -231,7 +233,7 @@ img {
             font-size: 1.5em;
         }
     }
-    
+
     h2 {
         font-size: 0.9em;
         font-weight: 400;
@@ -242,12 +244,12 @@ img {
             font-size: 1.1em;
         }
     }
-    
+
     p {
         font-size: 0.8em;
         margin-bottom: .2em;
         color: lighten($light-dark, 40);
-        
+
         @media (min-width: $medium) {
             font-size: 1em;
             margin: .5em 0;
@@ -267,6 +269,7 @@ img {
 
     p {
         font-size: 0.8em;
+
         @media (min-width: $medium) {
             font-size: 1em;
         }
@@ -293,6 +296,7 @@ img {
     p {
         font-size: .8em;
         margin-bottom: .2em;
+
         &:nth-child(1) {
             font-weight: 700;
         }
@@ -302,6 +306,48 @@ img {
         }
     }
 }
+
+// .user-content-footer {
+//     display: flex;
+//     flex-direction: column;
+//     margin: 1em 0;
+
+//     @media (min-width: $medium) {
+//         display: flex;
+//         flex-direction: row;
+//         width: 77%;
+//         align-self: flex-end;
+//     }
+
+//     div {
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: center;
+
+//         @media (min-width: $medium) {
+//             width: 50%;
+//         }
+//     }
+
+//     ion-icon {
+//         font-size: .8em;
+//     }
+//     p {
+//         font-size: .8em;
+//         color: $light-color;
+//         margin: 0.9em 0;
+//     }
+
+//     a {
+//         color: $light-color;
+//         font-size: .9em;
+
+//         &:hover {
+//             color: $green;
+//         }
+//     }
+
+// }
 
 .user-content-footer {
     display: flex;
@@ -314,35 +360,52 @@ img {
         width: 77%;
         align-self: flex-end;
     }
+}
+
+.user-content-footer-card {
 
     div {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
+        align-items: center;
+        margin: 0.5em 0em;
 
-        @media (min-width: $medium) {
-            width: 50%;
+        span {
+            margin-right: 1em;
+        }
+
+        p {
+            font-size: 0.8em;
+        }
+        
+        a {
+            color: $light-color;
+            font-size: 0.9em;
+
+            &:hover {
+                color: $green;
+                text-decoration: underline;
+            }
         }
     }
 
-    ion-icon {
-        font-size: .8em;
-    }
-    p {
-        font-size: .8em;
-        color: $light-color;
-        margin: 0.9em 0;
-    }
-    
-    a {
-        color: $light-color;
-        font-size: .9em;
+    @media (min-width: $medium) {
+        div {
+            display: flex;
+            margin-right: 1.3em;
 
-        &:hover {
-            color: $green;
+            span {
+                margin-right: 1em;
+            }
+
+            p {
+                font-size: 1em;
+            }
+
+            a {
+                font-size: 1em;
+            }
         }
     }
-
 }
 
 .footer {
@@ -364,18 +427,6 @@ img {
 }
 
 // ----- light theme //
-.body-bg {
-    background-color: $grey-color;
-    color: $dark;
+.not-avalilable {
+    color: lighten($light-dark, 40);
 }
-
-.card-bg {
-    background-color: $light-color;
-    color: $dark;
-}
-
-.text-color {
-    color: $dark;
-}
-
-

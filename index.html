@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>devfinder</title>
-    <!-- <link rel="shortcut icon" type="imagex/png" href="./images/icon.ico"> -->
 
     <!-- css style -->
     <link rel="stylesheet" href="assets/css/style.css">
@@ -17,10 +16,6 @@
     <div class="container">
         <header class="title">
             <h1> DevFinder</h1>
-            <div>
-                <a href="#" id="light-dark-theme">light</a>
-                <ion-icon name="sunny"></ion-icon>
-            </div>
         </header>
 
         <section class="search">
@@ -77,25 +72,37 @@
             </section>
 
             <section class="user-content-footer">
-                <div>
-                    <p id="user-location"><span>
+                <div class="user-content-footer-card">
+                    <div>
+                        <span>
                             <ion-icon name="location"></ion-icon>
-                        </span> San Francisco</p>
+                        </span>
+                        <p id="user-location"> San Francisco</p>
+                    </div>
 
-
-                    <p> <span>
+                    <div>
+                        <span>
                             <ion-icon name="link"></ion-icon>
-                        </span> <a id="blog" href="https://github.blog"> https://github.blog</a></p>
+                        </span>
+                        <p><a id="blog" href="https://github.blog"> https://github.blog</a></p>
+                    </div>
                 </div>
 
-                <div>
-                    <p id="twitter"> <span>
+                <div class="user-content-footer-card">
+                    <div>
+                        <span>
                             <ion-icon name="logo-twitter"></ion-icon>
-                        </span > @github </p>
+                        </span>
+                        <p id="twitter"> @github </p>
+                    </div>
 
-                    <p id="email"> <span>
-                        <ion-icon name="mail-outline"></ion-icon>
-                        </span > user@github.com</p>
+                    <div>
+                        <span>
+                            <ion-icon name="mail-outline"></ion-icon>
+                        </span>
+                        <p id="email"> user@github.com</p>
+                    </div>
+
                 </div>
             </section>
 

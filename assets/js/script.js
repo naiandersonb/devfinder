@@ -31,21 +31,21 @@ function createObj(user) {
 
 function loadPage(obj) {
     const user_content = document.querySelector('.user-content');
-    
+
     // avatar 
     const avatar = user_content.querySelector('#avatar');
     avatar.setAttribute('src', obj.avatar);
 
     // user name 
     const user_name = setValue('#user-name', obj.name);
-   
+
     // login
-    const login = setValue('#login',`@${obj.login}`);
-    
+    const login = setValue('#login', `@${obj.login}`);
+
     // joined 
     //TODO: formatar data exibida
-    const joined = setValue('#joined',obj.joined);
-    
+    const joined = setValue('#joined', obj.joined);
+
     // // bio
     const bio = setValue('#bio', obj.bio);
 
@@ -59,33 +59,41 @@ function loadPage(obj) {
     const following = setValue('#following', obj.following);
 
     // location
-    const location = setValue('#user-location',  `<ion-icon name="location" style="font-size: .8em;"></ion-icon> ${obj.location !== null? obj.location : 'Not Avalilable'}`);
+    const location = setValue('#user-location', obj.location !== null ? obj.location : 'Not Avalilable');
 
     // blog
-    const blog = setValue('#blog', obj.blog !== "" ? obj.blog : 'Not Avalilable');
-    blog.setAttribute('href', obj.blog);
-
-    // twitter
-    if(obj.twitter !== null) {
-        const twitter = setValue('#twitter', `<ion-icon name="logo-twitter"></ion-icon> ${obj.twitter}`);
+    if(obj.blog !== "") {
+        const blog = setValue('#blog', obj.blog);
+        blog.setAttribute('href', obj.blog);
     } else {
-        const value = 'Not Avalilable';
-        const twitter = setValue('#twitter', `<ion-icon name="logo-twitter"></ion-icon> ${value}`);
+        const blog = setValue('#blog', 'Not Avalilable');
+        blog.classList.add('not-avalilable');
+        blog.setAttribute('href', '#');
 
     }
-    
+
+    // twitter
+    if (obj.twitter !== null) {
+        const twitter = setValue('#twitter', obj.twitter);
+    } else {
+        const twitter = setValue('#twitter', 'Not Avalilable');
+        twitter.classList.add('not-avalilable');
+    }
+
     // email
-    if(obj.email !== null) {
-        const email = setValue('#email', `<ion-icon name="mail-outline"></ion-icon> ${obj.email}`);
+    if (obj.email !== null) {
+        const email = setValue('#email', obj.email);
+        email.classList.remove('not-valilable');
     } else {
         const value = 'Not Avalilable';
-        const email = setValue('#email', `<ion-icon name="mail-outline"></ion-icon> ${value}`);
+        const email = setValue('#email', value);
+        email.classList.add('not-avalilable');
     }
 }
 
 function setValue(id, value) {
 
-    if(id === '#bio' && value === null) {
+    if (id === '#bio' && value === null) {
         value = 'This profile has no bio';
     }
 
@@ -95,23 +103,23 @@ function setValue(id, value) {
     return element;
 }
 
-//TODO: terminar depois
+// //TODO: terminar depois
 
-change_theme.addEventListener('click', event => {
-   event.preventDefault();
-   const body = document.querySelector('body');
-   body.classList.add('body-bg');
+// change_theme.addEventListener('click', event => {
+//    event.preventDefault();
+//    const body = document.querySelector('body');
+//    body.classList.add('body-bg');
 
-   const input = document.querySelector('.search');
-   input.classList.add('card-bg');
+//    const input = document.querySelector('.search');
+//    input.classList.add('card-bg');
 
-   const card = document.querySelector('.user-content');
-   card.classList.add('card-bg');
+//    const card = document.querySelector('.user-content');
+//    card.classList.add('card-bg');
 
-   const card_user = document.querySelector('.user-content-body');
-   card_user.classList.add('body-bg');
+//    const card_user = document.querySelector('.user-content-body');
+//    card_user.classList.add('body-bg');
 
-   const card_footer = document.querySelector('.user-content-footer');
-   const span = card_footer.querySelector('span');
-   span.classList.add('text-color');
-});
+//    const card_footer = document.querySelector('.user-content-footer');
+//    const span = card_footer.querySelector('span');
+//    span.classList.add('text-color');
+// });
