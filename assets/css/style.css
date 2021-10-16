@@ -333,7 +333,7 @@ img {
 
 .bio {
   display: block;
-  margin: 1em 0;
+  margin: 0.5em 0 1em 0;
 }
 
 @media (min-width: 900px) {
@@ -442,7 +442,7 @@ img {
 
 .user-content-footer-card div a {
   color: #dddfe7;
-  font-size: 0.9em;
+  font-size: 1em;
 }
 
 .user-content-footer-card div a:hover {
@@ -487,6 +487,6 @@ img {
 }
 
 .not-avalilable {
-  color: #8a8f94;
+  color: #8a8f94 !important;
 }
 /*# sourceMappingURL=style.css.map */

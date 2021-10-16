@@ -1,5 +1,4 @@
 const user_form = document.querySelector('.search-user');
-const change_theme = document.querySelector('#light-dark-theme');
 
 user_form.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -10,6 +9,8 @@ user_form.addEventListener('submit', (event) => {
         .then(obj => loadPage(obj));
 });
 
+
+// guarda as informações do usuário
 function createObj(user) {
     const git_user = {
         avatar: user.avatar_url,
@@ -29,6 +30,8 @@ function createObj(user) {
     return git_user;
 }
 
+
+// carrega as informações na página
 function loadPage(obj) {
     const user_content = document.querySelector('.user-content');
 
@@ -43,11 +46,11 @@ function loadPage(obj) {
     const login = setValue('#login', `@${obj.login}`);
 
     // joined 
-    //TODO: formatar data exibida
-    const joined = setValue('#joined', obj.joined);
+    const joined = setValue('#joined', dateFormart(obj.joined));
 
     // // bio
     const bio = setValue('#bio', obj.bio);
+    hasEmpty(obj.bio) ?  bio.classList.add('not-avalilable') :  bio.classList.remove('not-avalilable');
 
     // repos
     const repos = setValue('#repos', obj.repos);
@@ -59,43 +62,32 @@ function loadPage(obj) {
     const following = setValue('#following', obj.following);
 
     // location
-    const location = setValue('#user-location', obj.location !== null ? obj.location : 'Not Avalilable');
+    const location = setValue('#user-location', obj.location);
+    hasEmpty(obj.location) ? location.classList.add('not-avalilable') : location.classList.remove('not-avalilable');
 
     // blog
-    if(obj.blog !== "") {
-        const blog = setValue('#blog', obj.blog);
-        blog.setAttribute('href', obj.blog);
-    } else {
-        const blog = setValue('#blog', 'Not Avalilable');
+    const blog = setValue('#blog', obj.blog);
+    if(obj.blog === "") {
         blog.classList.add('not-avalilable');
-        blog.setAttribute('href', '#');
-
+    } else {
+        blog.classList.remove('not-avalilable');
+        blog.setAttribute('href', obj.blog);
     }
 
     // twitter
-    if (obj.twitter !== null) {
-        const twitter = setValue('#twitter', obj.twitter);
-    } else {
-        const twitter = setValue('#twitter', 'Not Avalilable');
-        twitter.classList.add('not-avalilable');
-    }
+    const twitter = setValue('#twitter', obj.twitter);
+    hasEmpty(obj.twitter) ? twitter.classList.add('not-avalilable') : twitter.classList.remove('not-avalilable');
 
     // email
-    if (obj.email !== null) {
-        const email = setValue('#email', obj.email);
-        email.classList.remove('not-valilable');
-    } else {
-        const value = 'Not Avalilable';
-        const email = setValue('#email', value);
-        email.classList.add('not-avalilable');
-    }
+    const email = setValue('#email', obj.email);
+    hasEmpty(obj.email) ? email.classList.add('not-avalilable') : email.classList.remove('not-avalilable');
+
 }
 
+// adiciona o valor recebido no corpo da tag
 function setValue(id, value) {
 
-    if (id === '#bio' && value === null) {
-        value = 'This profile has no bio';
-    }
+    value = checkValue(value, id);
 
     const user_content = document.querySelector('.user-content');
     const element = user_content.querySelector(id);
@@ -103,23 +95,38 @@ function setValue(id, value) {
     return element;
 }
 
-// //TODO: terminar depois
+// seta a mensagem default
+function checkValue(value, id) {
 
-// change_theme.addEventListener('click', event => {
-//    event.preventDefault();
-//    const body = document.querySelector('body');
-//    body.classList.add('body-bg');
+    const MSG = ['not-avalilable', 'This profile has no bio'];
+    
+    if (id === '#bio' && value === null) {
+        value = MSG[1];
+    }
 
-//    const input = document.querySelector('.search');
-//    input.classList.add('card-bg');
+    if(value === null || value === "") {
+        value = MSG[0];
+    }
+    
+    return value;
+}
 
-//    const card = document.querySelector('.user-content');
-//    card.classList.add('card-bg');
 
-//    const card_user = document.querySelector('.user-content-body');
-//    card_user.classList.add('body-bg');
+// formata a data
+function dateFormart(date) {
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const df = new Date(date);
 
-//    const card_footer = document.querySelector('.user-content-footer');
-//    const span = card_footer.querySelector('span');
-//    span.classList.add('text-color');
-// });
+    const day = df.getDay();
+    const month = df.getMonth();
+    const year = df.getFullYear();
+
+    return `Joined ${day < 10? `0${day}` : day} ${months[month]} ${year}`;
+}
+
+
+// verifica se o campo está vazio
+function hasEmpty(value) {
+    return !(value !== null);
+}
