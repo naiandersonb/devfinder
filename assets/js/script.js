@@ -69,6 +69,10 @@ function loadPage(obj) {
     const blog = setValue('#blog', obj.blog);
     if(obj.blog === "") {
         blog.classList.add('not-avalilable');
+        blog.setAttribute('href', "/");
+        // blog.addEventListener('click', (e) => {
+        //     e.preventDefault();
+        // });
     } else {
         blog.classList.remove('not-avalilable');
         blog.setAttribute('href', obj.blog);
