@@ -8,7 +8,7 @@ O desafio consiste em construir um aplicativo de pesquisa de usuário do GitHub 
 
 ![](./assets/images/desktop.png)
 
-⚡ Experimente voc~e mesmo: [demo](https://naiandersonb.github.io/devfinder/)  
+⚡ Experimente você mesmo: [demo](https://naiandersonb.github.io/devfinder/)  
 
 ### 💼 Construido com:
 
